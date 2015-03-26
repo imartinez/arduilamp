@@ -1,2 +1,2 @@
 # arduilamp
-Arduino serial controlled RGB lamp + Desktop client
+@see http://imartinez.github.io/arduilamp
