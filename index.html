@@ -1,49 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Arduilamp by imartinez</title>
+    <meta name="description" content="Arduilamp : Arduino serial controlled RGB lamp + Desktop client">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Arduilamp</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Arduilamp</h1>
-        <p>Arduino serial controlled RGB lamp + Desktop client</p>
 
-        <p class="view"><a href="https://github.com/imartinez/arduilamp">View the Project on GitHub <small>imartinez/arduilamp</small></a></p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/imartinez/arduilamp">View on GitHub</a>
 
+          <h1 id="project_title">Arduilamp</h1>
+          <h2 id="project_tagline">Arduino serial controlled RGB lamp + Desktop client</h2>
 
-        <ul>
-          <li><a href="https://github.com/imartinez/arduilamp/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/imartinez/arduilamp/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/imartinez/arduilamp">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/imartinez/arduilamp/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/imartinez/arduilamp/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h3>
 <a id="arduino-serial-controlled-rgb-lamp--desktop-client" class="anchor" href="#arduino-serial-controlled-rgb-lamp--desktop-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arduino serial controlled RGB lamp + Desktop client.</h3>
 
 <p>This is a simple Arduino RGB lamp controlled using serial port. The python desktop client uses the serial port to control the RGB lamp color.</p>
 
+<p><a href="http://www.youtube.com/watch?v=PZxmZqWvhac"><img src="http://img.youtube.com/vi/PZxmZqWvhac/0.jpg" alt="Arduilamp video"></a></p>
+
+<h2>
+<a id="arduino" class="anchor" href="#arduino" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arduino</h2>
+
 <h3>
-<a id="arduino-sketch" class="anchor" href="#arduino-sketch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arduino sketch</h3>
+<a id="arduino-sketch" class="anchor" href="#arduino-sketch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arduino Sketch</h3>
 
 <p><img src="https://raw.githubusercontent.com/imartinez/arduilamp/master/arduilamp-doc/sketch.png" alt="arduilamp_sketch"></p>
+
+<h2>
+<a id="python-desktop-client" class="anchor" href="#python-desktop-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Python desktop client</h2>
+
+<p>The python client is a multiplatform client that lets you communicate with Arduino using USB serial port. 
+1. Edit your_arduilamp_repo_root/arduilamp-desktop-client/arduilamp.py to change the value of SERIALPORT to your serial port. 
+2. Easy to run:</p>
+
+<pre><code>$ cd your_arduilamp_repo_root/arduilamp-desktop-client
+$ python arduilamp.py
+</code></pre>
+
+<ol>
+<li>Easy to use:
+<img src="https://raw.githubusercontent.com/imartinez/arduilamp/master/arduilamp-doc/arduilamp_python_client.jpeg" alt="arduilamp_python_client">
+</li>
+</ol>
+
+<h3>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies:</h3>
+
+<ul>
+<li>python: <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>
+</li>
+<li>pyserial: <a href="http://pyserial.sourceforge.net/pyserial.html#installation">http://pyserial.sourceforge.net/pyserial.html#installation</a>
+</li>
+<li>TKinter (usually part of python installation): <a href="http://tkinter.unpythonic.net/wiki/How_to_install_Tkinter">http://tkinter.unpythonic.net/wiki/How_to_install_Tkinter</a>
+</li>
+</ul>
+
+<h2>
+<a id="communication-protocol" class="anchor" href="#communication-protocol" aria-hidden="true"><span class="octicon octicon-link"></span></a>Communication protocol</h2>
+
+<p>Writing on the serial port to make the lamp change is as easy as sending R, G, or B followed by a 0-255 value. Everytime Arduino receives a valid input it sends back the message: <strong>new value: X</strong></p>
+
+<pre><code>&gt; R255 // Sets the red led to its top brightness level
+&lt; new value: 255
+&gt; G128 // Sets the green led to its medium brightness level
+&lt; new value: 128
+&gt; B0 // Sets the blue led to its lowest brightness level (off)
+&lt; new value: 0
+</code></pre>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/imartinez">imartinez</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Arduilamp maintained by <a href="https://github.com/imartinez">imartinez</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
     
+
   </body>
 </html>
